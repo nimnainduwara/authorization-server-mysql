@@ -1,0 +1,29 @@
+server:
+  port: 0
+  servlet:
+    context-path: /api/auth-service/
+spring:
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+    initialization-mode: always
+  application:
+    name: auth-service
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
